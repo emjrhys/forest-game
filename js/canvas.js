@@ -17,7 +17,7 @@ function draw() {
 }
 
 function drawClip(x, y) {
-	ctx.drawImage(imageNight, 0, 0, imgW, imgH);
+	ctx.drawImage(imageDay, 0, 0, imgW, imgH);
 
 	ctx.save();
 
