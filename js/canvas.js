@@ -87,5 +87,5 @@ ctx.canvas.height = window.innerHeight;
 window.onresize = redraw;
 imageNight.onload = draw;
 
-imageNight.src  = '../img/night.png';
-imageDay.src    = '../img/day.png';
+imageNight.src  = 'img/night.png';
+imageDay.src    = 'img/day.png';
