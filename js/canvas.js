@@ -30,28 +30,24 @@ function drawClip(x, y) {
 
 	ctx.restore();
 
-	// var temp = document.createElement('canvas'),
- //        tx = temp.getContext('2d');
-                            
- //    temp.width = ctx.canvas.width;
- //    temp.height = ctx.canvas.height;
-    
- //    tx.translate(-temp.width, 0);
- //    tx.shadowOffsetX = temp.width;    
- //    tx.shadowOffsetY = 0;
- //    tx.shadowColor = '#000';
- //    tx.shadowBlur = 40;
-    
- //    tx.arc(x-100, y, 70, 0, Math.PI*2, true);
- //    tx.closePath();
- //    tx.clip();
+	// var scratchCanvas = document.createElement('canvas');
+	// scratchCanvas.width = canvas.width;
+	// scratchCanvas.height = canvas.height;
+	// var scratchCtx = scratchCanvas.getContext('2d');
 
- //    tx.drawImage(imageDay, 0, 0, imgW, imgH);
+	// scratchCtx.clearRect(0, 0, scratchCanvas.width, scratchCanvas.height);
 
- //    ctx.save();
- //    // ctx.globalCompositeOperation = 'destination-out';
- //    ctx.drawImage(temp, 0, 0);
- //    ctx.restore();
+	// scratchCtx.globalCompositeOperation = 'source-over'; //default
+
+	// scratchCtx.drawImage(imageDay, 0, 0, imgW, imgH);
+	// scratchCtx.fillStyle = '#fff'; //color doesn't matter, but we want full opacity
+	// scratchCtx.globalCompositeOperation = 'destination-in';
+	// scratchCtx.beginPath();
+	// scratchCtx.arc(x, y, clipRadius, 0, Math.PI*2, true); 
+	// scratchCtx.closePath();
+	// scratchCtx.fill();
+
+	// ctx.drawImage(scratchCanvas, 0, 0);
 }
 
 function redraw() {
