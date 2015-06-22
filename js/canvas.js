@@ -8,6 +8,7 @@ function scaleImages(img) {
 }
 
 function draw() {
+	rect = canvas.getBoundingClientRect();
 	scaleImages(imageNight);
 
 	ctx.drawImage(imageNight, 0, 0, imgW, imgH);
@@ -21,7 +22,7 @@ function drawClip(x, y) {
 	ctx.save();
 
 	ctx.beginPath();
-	ctx.arc(x-100, y, 70, 0, Math.PI*2, true); 
+	ctx.arc(x, y, clipRadius, 0, Math.PI*2, true); 
 	ctx.closePath();
 	ctx.clip();
 
@@ -54,30 +55,31 @@ function drawClip(x, y) {
 }
 
 function redraw() {
-	ctx.canvas.width  = getWidth();
+	ctx.canvas.width = getWidth();
+	clipRadius = canvas.width * 0.04;
 
-	scaleImages(imageNight);
 	draw();	
 }
 
 function setupMouse(canvas, onMouseMove, preventDefault) {
     var hook = canvas.addEventListener.bind(canvas);
     hook('mousemove', updateCoordinates);
-    // hook('scroll', updateRect);
 
     function updateCoordinates(e) {
-        mouse.x = (e.clientX);
-        mouse.y = (e.clientY);
+        mouse.x = (e.clientX - rect.left);
+        mouse.y = (e.clientY - rect.top);
         onMouseMove(mouse.x, mouse.y);
     }
 };
 
 var canvas      = document.getElementById('forest'),
 	ctx         = canvas.getContext('2d'),
+	rect        = null,
 
 	imageNight  = new Image(),
 	imageDay    = new Image(),
 	imgW = 0, imgH = 0,
+	clipRadius = 50,
 	mouse = { x: 0, y: 0 };
 
 setupMouse(canvas, drawClip, true);

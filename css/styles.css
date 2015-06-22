@@ -6,6 +6,7 @@ html, body {
 
 #forest {
   display: block;
-  margin: 0 auto; }
+  margin: 0 auto;
+  cursor: none; }
 
 /*# sourceMappingURL=styles.css.map */
