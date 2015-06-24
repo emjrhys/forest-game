@@ -20,35 +20,19 @@ function draw() {
 function drawClip(x, y) {
 	ctx.drawImage(imageNight, 0, 0, imgW, imgH);
 
-	ctx.save();
+	sctx.clearRect(0, 0, scratchCanvas.width, scratchCanvas.height);
 
-	ctx.beginPath();
-	ctx.arc(x, y, clipRadius, 0, Math.PI*2, true); 
-	ctx.closePath();
-	ctx.clip();
+	sctx.globalCompositeOperation = 'source-over'; //default
 
-	ctx.drawImage(day, 0, 0, imgW, imgH);
+	sctx.drawImage(day, 0, 0, imgW, imgH);
+	sctx.fillStyle = '#fff'; //color doesn't matter, but we want full opacity
+	sctx.globalCompositeOperation = 'destination-in';
+	sctx.beginPath();
+	sctx.arc(x, y, clipRadius, 0, Math.PI*2, true); 
+	sctx.closePath();
+	sctx.fill();
 
-	ctx.restore();
-
-	// var scratchCanvas = document.createElement('canvas');
-	// scratchCanvas.width = canvas.width;
-	// scratchCanvas.height = canvas.height;
-	// var scratchCtx = scratchCanvas.getContext('2d');
-
-	// scratchCtx.clearRect(0, 0, scratchCanvas.width, scratchCanvas.height);
-
-	// scratchCtx.globalCompositeOperation = 'source-over'; //default
-
-	// scratchCtx.drawImage(imageDay, 0, 0, imgW, imgH);
-	// scratchCtx.fillStyle = '#fff'; //color doesn't matter, but we want full opacity
-	// scratchCtx.globalCompositeOperation = 'destination-in';
-	// scratchCtx.beginPath();
-	// scratchCtx.arc(x, y, clipRadius, 0, Math.PI*2, true); 
-	// scratchCtx.closePath();
-	// scratchCtx.fill();
-
-	// ctx.drawImage(scratchCanvas, 0, 0);
+	ctx.drawImage(scratchCanvas, 0, 0);
 }
 
 function redraw() {
@@ -71,6 +55,9 @@ function setupMouse(canvas, onMouseMove, preventDefault) {
 
 var canvas      = document.getElementById('forest'),
 	ctx         = canvas.getContext('2d'),
+	scratchCanvas = document.createElement('canvas'),
+	sctx = scratchCanvas.getContext('2d'),
+
 	day           = document.getElementById('day'),
 	rect        = null,
 
@@ -78,11 +65,14 @@ var canvas      = document.getElementById('forest'),
 	imageDay    = new Image(),
 	imgW = 0, imgH = 0,
 	clipRadius = 50,
-	mouse = { x: 0, y: 0 };
+	mouse = { x: -200, y: -200 };
+
 
 setupMouse(canvas, drawClip, true);
 ctx.canvas.width  = getWidth();
 ctx.canvas.height = window.innerHeight;
+scratchCanvas.width = canvas.width;
+scratchCanvas.height = canvas.height;
 
 window.onresize = redraw;
 imageNight.onload = draw;
