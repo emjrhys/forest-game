@@ -13,7 +13,8 @@ function draw() {
 
 	ctx.drawImage(imageNight, 0, 0, imgW, imgH);
 
-	drawClip();
+	drawClip(mouse.x, mouse.y);
+    setTimeout(draw,20);
 }
 
 function drawClip(x, y) {
@@ -26,7 +27,7 @@ function drawClip(x, y) {
 	ctx.closePath();
 	ctx.clip();
 
-	ctx.drawImage(imageDay, 0, 0, imgW, imgH);
+	ctx.drawImage(day, 0, 0, imgW, imgH);
 
 	ctx.restore();
 
@@ -70,6 +71,7 @@ function setupMouse(canvas, onMouseMove, preventDefault) {
 
 var canvas      = document.getElementById('forest'),
 	ctx         = canvas.getContext('2d'),
+	day           = document.getElementById('day'),
 	rect        = null,
 
 	imageNight  = new Image(),

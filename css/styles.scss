@@ -6,9 +6,20 @@ html, body {
 	background-color: #071727;
 }
 
+#day {
+	display: block;
+	width: 0;
+
+	visibility: hidden;
+}
+
 #forest {
 	display: block;
+	position: absolute;
 	margin: 0 auto;
+	top: 0;
+	left: 0;
+	right: 0;
 
 	cursor: none;
 }
