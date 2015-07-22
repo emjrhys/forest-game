@@ -50,6 +50,7 @@ html, body {
 		transform: translate(-50%, -50%);
 		-ms-transform: translate(-50%, -50%);
 		-moz-transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
 
 		width: 100%;
 	}
@@ -82,7 +83,7 @@ html, body {
 
 		padding: 26px 38px;
 
-		color: #fff;
+		color: #eee;
 		font-size: 1.4em;
 		letter-spacing: 1px;
 

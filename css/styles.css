@@ -35,6 +35,7 @@ html, body {
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
     width: 100%; }
   #landing.hidden {
     opacity: 0; }
@@ -53,7 +54,7 @@ html, body {
     border: none;
     outline: none;
     padding: 26px 38px;
-    color: #fff;
+    color: #eee;
     font-size: 1.4em;
     letter-spacing: 1px;
     transition: color 0.3s; }
@@ -153,5 +154,10 @@ footer {
   #landing.signup button:hover {
     background-color: #fff;
     color: #e27870; }
+#landing.signup .replay {
+  color: #696984;
+  font-size: 1.1em; }
+  #landing.signup .replay:hover {
+    color: #eee; }
 
 /*# sourceMappingURL=styles.css.map */
