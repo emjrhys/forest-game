@@ -7,7 +7,8 @@ html, body {
 	height: 100%;
 	margin: 0;
 
-	background-color: #071727;
+	background-color: $background-purple;
+	font-family: 'BrandonReg';
 }
 
 .volume {
@@ -40,7 +41,7 @@ html, body {
 	left: 0;
 
 	text-align: center;
-	font: { family: 'BrandonReg'; }
+	color: #eee;
 
 	> div {
 		position: absolute;
@@ -94,7 +95,6 @@ html, body {
 		display: block;
 		color: $light-purple;
 		text-decoration: none;
-		// font: { family: 'BrandonReg'; }
 
 		transition: color 0.3s;
 
@@ -111,7 +111,7 @@ footer {
 	left: 26px;
 	bottom: 16px;
 
-	font: { family: 'BrandonReg'; }
+	// font: { family: 'BrandonReg'; }
 	color: $light-purple;
 
 	a {
@@ -133,6 +133,20 @@ footer {
 	&.running {
 		display: block;
 	}
+
+	a {
+		position: absolute;
+		bottom: 16px;
+		right: 26px;
+
+		color: $light-purple;
+		text-decoration: none;
+		transition: color 0.3s;
+
+		&:hover {
+			color: #eee;
+		}
+	}
 }
 
 #day {
@@ -152,3 +166,5 @@ footer {
 
 	cursor: none;
 }
+
+@import 'signup';
