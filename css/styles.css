@@ -67,6 +67,8 @@ html, body {
     transition: color 0.3s; }
     #landing a:hover {
       color: #eee; }
+  #landing .sorry {
+    display: none; }
 
 footer {
   position: fixed;
@@ -109,6 +111,11 @@ footer {
   left: 0;
   right: 0;
   cursor: none; }
+
+html.touch #landing .sorry {
+  display: block; }
+html.touch #landing > a, html.touch #landing > button {
+  display: none; }
 
 #landing.signup .logo {
   margin-bottom: 50px; }
@@ -159,5 +166,21 @@ footer {
   font-size: 1.1em; }
   #landing.signup .replay:hover {
     color: #eee; }
+@media only screen and (max-width: 500px) {
+  #landing.signup .form-wrapper {
+    box-sizing: border-box;
+    padding: 0 30px; }
+  #landing.signup input, #landing.signup button {
+    width: 100%;
+    border-radius: 20px; }
+  #landing.signup input {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    text-align: center;
+    padding-left: 0; }
+  #landing.signup button {
+    left: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0; } }
 
 /*# sourceMappingURL=styles.css.map */

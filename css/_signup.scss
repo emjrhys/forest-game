@@ -78,4 +78,31 @@
 			color: #eee;
 		}
 	}
+
+	@media only screen and (max-width: 500px) {
+		.form-wrapper {
+			box-sizing: border-box;
+			padding: 0 30px;
+		}
+
+		input, button {
+			width: 100%;
+			border-radius: 20px;
+		}
+
+		input {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+
+			text-align: center;
+			padding-left: 0;
+		}
+
+		button {
+			left: 0;
+
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		}
+	}
 }

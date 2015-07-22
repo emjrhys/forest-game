@@ -104,6 +104,9 @@ html, body {
 		}
 	}
 
+	.sorry {
+		display: none;
+	}
 }
 
 footer {
@@ -166,6 +169,18 @@ footer {
 	right: 0;
 
 	cursor: none;
+}
+
+html.touch {
+	#landing {
+		.sorry {
+			display: block;
+		}
+
+		> a, > button {
+			display: none;
+		}
+	}
 }
 
 @import 'signup';
