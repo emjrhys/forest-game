@@ -11,20 +11,37 @@
         <!-- Place favicon.ico in the root directory -->
 
         <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/fonts.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/styles.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
 
-        <video id="day" autoplay loop>
-            <source src="img/day.mp4" type="video/mp4">
-        </video>
-        <canvas id="forest"></canvas>
+        <button class="volume"></button>
+
+        <section id="landing">
+            <div>
+                <img class="logo" src="img/logo.png" />
+                <img class="compass" src="img/compass.png" />
+                <button class="start">Find the Compass</button>
+                <a href="#">Skip to Sign-Up</a>
+            </div>
+        </section>
+
+        <section id="game">
+            <video id="day" autoplay loop>
+                <source src="img/day.mp4" type="video/mp4">
+            </video>
+            <canvas id="forest"></canvas>
+        </section>
+
+        <footer>Inspired by <a href="http://sloth.animade.tv/" target="_blank">The Lost Sloth</a></footer>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/canvas.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

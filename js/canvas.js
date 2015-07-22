@@ -38,8 +38,6 @@ function drawClip(x, y) {
 function redraw() {
 	ctx.canvas.width = getWidth();
 	clipRadius = canvas.width * 0.04;
-
-	draw();	
 }
 
 function setupMouse(canvas, onMouseMove, preventDefault) {
@@ -53,20 +51,29 @@ function setupMouse(canvas, onMouseMove, preventDefault) {
     }
 };
 
-var canvas      = document.getElementById('forest'),
-	ctx         = canvas.getContext('2d'),
+function init() {
+	if (day.readyState === 4) {
+		console.log('loaded');
+
+		draw();
+		$('.loader').addClass('done');
+	} else {
+		setTimeout(init, 100);
+	}
+}
+
+var canvas        = document.getElementById('forest'),
+	ctx           = canvas.getContext('2d'),
 	scratchCanvas = document.createElement('canvas'),
-	sctx = scratchCanvas.getContext('2d'),
+	sctx          = scratchCanvas.getContext('2d'),
 
 	day           = document.getElementById('day'),
-	rect        = null,
+	rect          = null,
 
 	imageNight  = new Image(),
-	imageDay    = new Image(),
 	imgW = 0, imgH = 0,
 	clipRadius = 50,
 	mouse = { x: -200, y: -200 };
-
 
 setupMouse(canvas, drawClip, true);
 ctx.canvas.width  = getWidth();
@@ -75,7 +82,5 @@ scratchCanvas.width = canvas.width;
 scratchCanvas.height = canvas.height;
 
 window.onresize = redraw;
-imageNight.onload = draw;
 
 imageNight.src  = 'img/night.png';
-imageDay.src    = 'img/day.png';

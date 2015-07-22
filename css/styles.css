@@ -4,6 +4,88 @@ html, body {
   margin: 0;
   background-color: #071727; }
 
+.volume {
+  position: absolute;
+  z-index: 11;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  background: url(../img/volume.png) no-repeat center center;
+  background-size: 34px 34px;
+  border: none;
+  outline: none; }
+
+#landing {
+  position: absolute;
+  z-index: 10;
+  background-color: #262430;
+  width: 100vw;
+  height: 100vh;
+  min-height: 700px;
+  top: 0;
+  left: 0;
+  text-align: center;
+  font-family: 'BrandonReg'; }
+  #landing > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    width: 100%; }
+  #landing.hidden {
+    opacity: 0; }
+  #landing img {
+    display: block;
+    margin: 0 auto; }
+  #landing .logo {
+    width: 80px;
+    margin: 0 auto 40px; }
+  #landing .compass {
+    width: 100%;
+    max-width: 700px; }
+  #landing .start {
+    background: url(../img/stroke.svg) no-repeat center center;
+    margin: 50px 0 10px;
+    border: none;
+    outline: none;
+    padding: 26px 38px;
+    color: #fff;
+    font-size: 1.4em;
+    letter-spacing: 1px;
+    transition: color 0.3s; }
+    #landing .start:hover {
+      color: #e27870; }
+  #landing a {
+    display: block;
+    color: #696984;
+    text-decoration: none;
+    transition: color 0.3s; }
+    #landing a:hover {
+      color: #eee; }
+
+footer {
+  position: fixed;
+  z-index: 11;
+  left: 26px;
+  bottom: 16px;
+  font-family: 'BrandonReg';
+  color: #696984; }
+  footer a {
+    color: #e27870;
+    text-decoration: none;
+    border-bottom: 1px solid #262430;
+    transition: border-color .3s; }
+    footer a:hover {
+      border-color: #e27870; }
+
+#game {
+  display: none; }
+  #game.running {
+    display: block; }
+
 #day {
   display: block;
   width: 0;
