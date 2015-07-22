@@ -114,7 +114,9 @@ footer {
 
 html.touch #landing .sorry {
   display: block; }
-html.touch #landing > a, html.touch #landing > button {
+html.touch #landing .start, html.touch #landing .skip {
+  display: none; }
+html.touch footer {
   display: none; }
 
 #landing.signup .logo {

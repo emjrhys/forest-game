@@ -177,9 +177,11 @@ html.touch {
 			display: block;
 		}
 
-		> a, > button {
-			display: none;
-		}
+		.start, .skip { display: none; }
+	}
+
+	footer {
+		display: none;
 	}
 }
 
