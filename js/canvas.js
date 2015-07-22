@@ -9,7 +9,6 @@ function scaleImages(img) {
 
 function draw() {
 	rect = canvas.getBoundingClientRect();
-	scaleImages(imageNight);
 
 	ctx.drawImage(imageNight, 0, 0, imgW, imgH);
 
@@ -36,7 +35,10 @@ function drawClip(x, y) {
 }
 
 function redraw() {
+	scaleImages(imageNight);
+	
 	ctx.canvas.width = getWidth();
+	ctx.canvas.height = imgH;
 	clipRadius = canvas.width * 0.04;
 }
 
@@ -55,6 +57,7 @@ function init() {
 	if (day.readyState === 4) {
 		console.log('loaded');
 
+		scaleImages(imageNight);
 		draw();
 		$('.loader').addClass('done');
 	} else {

@@ -94,7 +94,7 @@ footer {
   #game.running {
     display: block; }
   #game a {
-    position: absolute;
+    position: fixed;
     bottom: 16px;
     right: 26px;
     color: #696984;
