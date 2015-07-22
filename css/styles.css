@@ -48,7 +48,8 @@ html, body {
   #landing .compass {
     width: 100%;
     max-width: 700px; }
-  #landing .start, #landing .sorry button {
+  #landing .start, #landing .sorry a {
+    display: inline-block;
     background: url(../img/stroke.svg) no-repeat center center;
     margin: 50px 0 10px;
     border: none;
@@ -58,7 +59,7 @@ html, body {
     font-size: 1.4em;
     letter-spacing: 1px;
     transition: color 0.3s; }
-    #landing .start:hover, #landing .sorry button:hover {
+    #landing .start:hover, #landing .sorry a:hover {
       color: #e27870; }
   #landing a {
     display: block;
@@ -68,7 +69,11 @@ html, body {
     #landing a:hover {
       color: #eee; }
   #landing .sorry {
-    display: none; }
+    display: none;
+    margin-top: 50px; }
+    #landing .sorry a {
+      margin: 0;
+      padding: 16px 40px; }
 
 footer {
   position: fixed;

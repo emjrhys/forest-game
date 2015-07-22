@@ -74,7 +74,8 @@ html, body {
 		max-width: 700px;
 	}
 
-	.start, .sorry button {
+	.start, .sorry a {
+		display: inline-block;
 		background: url(../img/stroke.svg) no-repeat center center;
 		margin: 50px 0 10px;
 
@@ -106,6 +107,12 @@ html, body {
 
 	.sorry {
 		display: none;
+		margin-top: 50px;
+
+		a {
+			margin: 0;
+			padding: 16px 40px;
+		}
 	}
 }
 
