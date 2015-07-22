@@ -74,7 +74,7 @@ html, body {
 		max-width: 700px;
 	}
 
-	.start {
+	.start, .sorry button {
 		background: url(../img/stroke.svg) no-repeat center center;
 		margin: 50px 0 10px;
 
@@ -172,6 +172,8 @@ footer {
 }
 
 html.touch {
+	.volume { display: none; }
+
 	#landing {
 		.sorry {
 			display: block;
