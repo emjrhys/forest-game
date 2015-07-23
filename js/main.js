@@ -4,3 +4,7 @@ $('.start').click(function() {
 
 	init();
 });
+
+$('.volume').click(function() {
+	$(this).toggleClass('muted');
+});

@@ -20,11 +20,28 @@ html, body {
 	width: 34px;
 	height: 34px;
 
-	background: url(../img/volume.png) no-repeat center center;
+	background: none;
+	background-image: url(../assets/img/icons/volume.png);
+	background-repeat: no-repeat;
+	background-position: center center;
 	background-size: 34px 34px;
 	
 	border: none;
 	outline: none;
+
+	transition: background-image 0.3s;
+
+	&:hover {
+		background-image: url(../assets/img/icons/volume-hover.png);
+	}
+
+	&.muted {
+		background-image: url(../assets/img/icons/volume-muted.png);
+
+		&:hover {
+			background-image: url(../assets/img/icons/volume-muted-hover.png);
+		}
+	}
 }
 
 #landing {
@@ -76,7 +93,7 @@ html, body {
 
 	.start, .sorry a {
 		display: inline-block;
-		background: url(../img/stroke.svg) no-repeat center center;
+		background: url(../assets/img/stroke.svg) no-repeat center center;
 		margin: 50px 0 10px;
 
 		border: none;

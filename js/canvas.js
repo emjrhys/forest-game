@@ -36,7 +36,7 @@ function drawClip(x, y) {
 
 function redraw() {
 	scaleImages(imageNight);
-	
+
 	ctx.canvas.width = getWidth();
 	ctx.canvas.height = imgH;
 	clipRadius = canvas.width * 0.04;
@@ -86,4 +86,4 @@ scratchCanvas.height = canvas.height;
 
 window.onresize = redraw;
 
-imageNight.src  = 'img/night.png';
+imageNight.src  = 'assets/img/night.png';
