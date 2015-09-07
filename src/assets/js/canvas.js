@@ -5,27 +5,27 @@ function getWidth() { return (window.innerWidth > 1300) ? 1300 : window.innerWid
 function scaleImages(img) {
 	var wOverH = img.width / img.height;
 
-	imgW   = canvas.width;
-	imgH   = canvas.width / wOverH;
+	w   = canvas.width;
+	h   = canvas.width / wOverH;
 }
 
 function draw() {
 	rect = canvas.getBoundingClientRect();
 
-	ctx.drawImage(imageNight, 0, 0, imgW, imgH);
+    ctx.drawImage(night, 0, 0, w, h);
 
 	drawClip(mouse.x, mouse.y);
     setTimeout(draw,20);
 }
 
 function drawClip(x, y) {
-	ctx.drawImage(imageNight, 0, 0, imgW, imgH);
+	ctx.drawImage(night, 0, 0, w, h);
 
 	sctx.clearRect(0, 0, scratchCanvas.width, scratchCanvas.height);
 
 	sctx.globalCompositeOperation = 'source-over'; //default
 
-	sctx.drawImage(day, 0, 0, imgW, imgH);
+	sctx.drawImage(day, 0, 0, w, h);
 	sctx.fillStyle = '#fff'; //color doesn't matter, but we want full opacity
 	sctx.globalCompositeOperation = 'destination-in';
 	sctx.beginPath();
@@ -37,10 +37,10 @@ function drawClip(x, y) {
 }
 
 function redraw() {
-	scaleImages(imageNight);
+	//scaleImages(imageNight);
 
 	ctx.canvas.width = getWidth();
-	ctx.canvas.height = imgH;
+	ctx.canvas.height = h;
 	clipRadius = canvas.width * 0.04;
 }
 
@@ -57,7 +57,6 @@ function setupMouse(canvas, onMouseMove, preventDefault) {
     
 function init() {
 	if (day.readyState === 4) {
-		//console.log('loaded');
 
 		scaleImages(imageNight);
 		draw();
@@ -73,10 +72,13 @@ var canvas        = document.getElementById('forest'),
 	sctx          = scratchCanvas.getContext('2d'),
 
 	day           = document.getElementById('day'),
+    night         = document.getElementById('night'),
+    
 	rect          = null,
-
-	imageNight  = new Image(),
-	imgW = 0, imgH = 0,
+	
+    imageNight  = new Image(),
+    
+	w = 0, h = 0,
 	clipRadius = 50,
 	mouse = { x: -200, y: -200 };
 
