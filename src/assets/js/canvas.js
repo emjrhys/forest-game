@@ -53,7 +53,7 @@ function setupMouse(canvas, onMouseMove, preventDefault) {
         mouse.y = (e.clientY - rect.top);
         onMouseMove(mouse.x, mouse.y);
     }
-};
+}
     
 function init() {
 	if (day.readyState === 4) {

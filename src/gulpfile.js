@@ -13,9 +13,11 @@ var gulp				= require('gulp');
 // location constants
 var DIST_HTML			= './../dist';
     DIST_JS				= './../dist/assets/js/';
-    DIST_CSS			= './../dist/assets/css/';
+    DIST_JS_LIB			= './../dist/assets/js/lib';
+    DIST_CSS			= './../dist/assets/styles/css/';
     DIST_FONTS			= './../dist/assets/fonts/';
     DIST_IMG			= './../dist/assets/img/';
+    DIST_AUDIO			= './../dist/assets/audio/';
 
 var ALL_HTML 			= './**/*.html';
 var ALL_SCSS 			= './assets/styles/sass/*.scss'; 
@@ -28,7 +30,8 @@ var DEST_JS_LIB			= './assets/js/lib/';
 var DEST_JS_CORE		= './assets/js/';
 
 var ALL_FONTS			= './static/assets/fonts/**/*.{eot,ttf,woff,eof,svg}';
-var ALL_IMG				= './assets/img/**/*'
+var ALL_IMG				= './assets/img/**/**'
+var ALL_AUDIO           = './assets/audio/**'
 
 // convert sass to css
 gulp.task('sass', function(){
@@ -44,13 +47,12 @@ gulp.task('css', ['sass'],  function(){
         .pipe(concatCSS('bundle.min.css'))
         .pipe(min())
         .pipe(gulp.dest(DIST_CSS))
-        //.pipe(min({keepBreaks:true}))
         .pipe(notify({ message: 'dist/css complete' }));
 });
 
 // jshint js
 gulp.task('jshint', function(){
-    gulp.src(ALL_JS_CORE)
+    gulp.src([ALL_JS_CORE, '!./assets/js/plugins.js'])
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
         .pipe(notify({ message: 'jshint complete' }));
@@ -58,20 +60,18 @@ gulp.task('jshint', function(){
 
 // concat & uglify js, pipe to dist/js
 gulp.task('js', ['jshint',], function(){
-	gulp.src([ALL_JS_LIB, ALL_JS_CORE])
+	gulp.src(ALL_JS_CORE)
         .pipe(concat('bundle.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest(DIST_JS))
+        .pipe(gulp.dest(DIST_JS));
+    gulp.src(ALL_JS_LIB)
+        .pipe(gulp.dest(DIST_JS_LIB))
         .pipe(notify({ message: 'dist/js complete' }));
-});
-
-gulp.task('clean', function(cb) {
-    del([DIST_CSS, DIST_JS], cb);
 });
 
 // pipe fonts to dist/fonts
 gulp.task('fonts', function(){
-	gulp.src([ALL_FONTS])
+	gulp.src(ALL_FONTS)
         .pipe(gulp.dest(DIST_FONTS));
 });
 
@@ -81,20 +81,33 @@ gulp.task('img', function(){
         .pipe(gulp.dest(DIST_IMG));
 });
 
+// pipe audio to dist/audio
+gulp.task('audio', function(){
+	gulp.src(ALL_AUDIO)
+        .pipe(gulp.dest(DIST_AUDIO));
+});
+
 // corrects imports
 gulp.task('html-imports', function(){
-	gulp.src([ALL_HTML])
+	gulp.src(ALL_HTML)
     	.pipe(html_replace({
-	        'dev_css_index': 'assets/css/bundle.min.css',
+	        'dev_css_index': 'assets/styles/css/bundle.min.css',
 	        'dev_js_index': 'assets/js/bundle.min.js',
-	        'dev_css_subpage': '../assets/css/bundle.min.css',
+	        'dev_css_subpage': '../assets/styles/css/bundle.min.css',
 	        'dev_js_subpage': '../assets/js/bundle.min.js' 
 	    }))
     	.pipe(gulp.dest(DIST_HTML));
 });
 
-// PROD task broken
-//gulp.task('prod', ['css','js','html-imports','img','fonts']);
+/* currently does not work
+// empties dist assets
+gulp.task('clean', function(cb) {
+    del([DIST_CSS, DIST_JS, DIST_JS_LIB, DIST_IMG, DIST_AUDIO, DIST_FONTS], cb);
+});
+*/
+
+gulp.task('assets', ['img','audio','fonts']);
+gulp.task('prod', ['css','js','html-imports','assets']); // prod task WIP, styling is messed up
 gulp.task('dev', ['sass','jshint']);
 
 gulp.task('default', function(){});

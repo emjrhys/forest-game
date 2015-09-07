@@ -1,7 +1,7 @@
 'use strict';
 
 // jquery doesnt like audio tag
-var theme = document.getElementById("theme");
+var theme = document.getElementById('theme');
 
 $('.start').click(function() {
 	$('#landing').fadeOut(800);
