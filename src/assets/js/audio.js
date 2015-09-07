@@ -33,9 +33,9 @@ function playSound(sound){
     //source.start(0);
 }
 
-var sounds = {
+var audioFiles = {
   owl : {
-  //  src : '../music.mp3'
+  //  src : '../audio/horned-owl.mp3'
   },
 };
     
@@ -43,23 +43,21 @@ var sounds = {
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
 var audioCtx = new AudioContext();
     
-    // load file
-    var test;
-    var request = new XMLHttpRequest();
-    request.open("GET", "../music.mp3", true);
-    request.responseType = "arraybuffer";
+// load file
+var test;
+var request = new XMLHttpRequest();
+request.open("GET", "assets/audio/horned-owl.mp3", true);
+request.responseType = "arraybuffer";
 
-    request.onload = function() {
-        // request.response is encoded... so decode it now
-        audioCtx.decodeAudioData(request.response, function(buffer) {
-            test = buffer;
-            playSound(test);
-        }, function(err) {
-            throw new Error(err);
-        });
-    }
-    request.send();
+request.onload = function() {
+    // request.response is encoded... so decode it now
+    audioCtx.decodeAudioData(request.response, function(buffer) {
+        test = buffer;
+        playSound(test);
+    }, function(err) {
+        throw new Error(err);
+    });
+}
+request.send();
 
-    var audioFilenames = [
-    "http://developer.mozilla.org/@api/deki/files/2926/=AudioTest_(1).ogg"
-    ]
+

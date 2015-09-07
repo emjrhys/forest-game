@@ -3,7 +3,8 @@ html, body {
   height: 100%;
   margin: 0;
   background-color: #262430;
-  font-family: 'BrandonReg'; }
+  font-family: 'BrandonReg';
+  overflow: hidden; }
 
 .volume {
   position: absolute;

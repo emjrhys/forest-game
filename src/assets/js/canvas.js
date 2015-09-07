@@ -57,7 +57,7 @@ function setupMouse(canvas, onMouseMove, preventDefault) {
     
 function init() {
 	if (day.readyState === 4) {
-		console.log('loaded');
+		//console.log('loaded');
 
 		scaleImages(imageNight);
 		draw();
